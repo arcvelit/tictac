@@ -26,7 +26,7 @@ typedef enum {
 #define PACKED_DIAG_DESC (b(TOP_LEFT) | b(MID_MID) | b(BOT_RIGHT))
 #define PACKED_DIAG_ASC  (b(BOT_LEFT) | b(MID_MID) | b(TOP_RIGHT))
 
-const char REPR[3] = {' ', 'X', 'O'};
+const char REPR[3] = {'#', 'X', 'O'};
 
 TICTACDEF int check(int board, int line) {
     return (board & line) == line;
@@ -66,18 +66,14 @@ TICTACDEF int outcome(int board, player p, square s) {
 }
 
 void print_board(int board) {
-    printf("Tic Tac Toe");
+    puts("Tic Tac Toe");
     for (int s = 0; s < 9; s++) {
-        if (s % 3 == 0) {
-            printf("\n");
+        if (s > 0 && s % 3 == 0) {
+            putchar('\n');
         }
-        switch (get_square(board, s)) {
-            case NONE:     { printf("#"); break; }
-            case PLAYER_O: { printf("O"); break; }
-            case PLAYER_X: { printf("X"); break; }
-        }
+        putchar(REPR[get_square(board, s)]);
     }
-    printf("\n");
+    putchar('\n');
 }
 
 int stale(int board) {

@@ -37,7 +37,5 @@ int main()
         board = toggle_turn(board);
     }
 
-
-
-
+    return 0;
 }
