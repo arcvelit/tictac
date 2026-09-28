@@ -5,7 +5,7 @@ int main()
 {
     // The only game state
     int board = set_turn(EMPTY_BOARD, PLAYER_X);
-    // packed in a i32
+    // packed in an i32
 
     for(;;) {
         int square;
