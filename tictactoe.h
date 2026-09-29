@@ -33,7 +33,7 @@ TICTACDEF int check(int board, int line) {
 }
 
 TICTACDEF int set_square(int board, player p, square s) {
-    return board | (1 << (p - 1) << s*2 );
+    return board | (p << s*2);
 }
 
 TICTACDEF player get_square(int board, square s) {
